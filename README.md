@@ -7,7 +7,7 @@
 
 Customer Relationship Manager (CRM) gives YOU, the salesperson, independent business owner, business development executive, etc. the most straightforward way to  process the management of customer relations in your business/enterprise. Not only can it foster better client relations, but is a viable software solution which adds convenience and efficiency.
 
-The Nexus CRM v1 can provide this solutions, simplying the often complex tasks of managing customer details, dates, and tracking contracts so you can focus on what you do best - GENERATE REVENUE!
+The Nexus CRM v1 can provide this solution, simplying the often complex tasks of managing customer details, dates, and tracking contracts so you can focus on what you do best - GENERATE REVENUE!
 
 ## Features
 
