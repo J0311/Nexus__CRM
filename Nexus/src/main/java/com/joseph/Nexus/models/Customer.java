@@ -20,10 +20,10 @@ public class Customer{
     @Column(name = "customer_id", nullable = false)
     private int id;
 
-    @Column(nullable = false, columnDefinition = "VARCHAR(256")
+    @Column(nullable = false, columnDefinition = "VARCHAR(256)")
     private String first_name;
 
-    @Column(nullable = false, columnDefinition = "VARCHAR(256")
+    @Column(nullable = false, columnDefinition = "VARCHAR(256)")
     private String last_name;
 
     @Column(nullable = false, columnDefinition = "TEXT")
@@ -37,6 +37,12 @@ public class Customer{
 
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean status;
+
+    public Customer(String first_name, String last_name, String email){
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+    }
 
     //List<Customer> customers;
 

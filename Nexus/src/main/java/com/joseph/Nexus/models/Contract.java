@@ -22,11 +22,16 @@ public class Contract {
     @Column(name = "contract_id", nullable = false)
     private int id;
 
-    @Column(nullable = false, columnDefinition = "VARCHAR(256")
+    @Column(nullable = false, columnDefinition = "VARCHAR(256)")
     private String client_name;
 
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean status;
+
+    public Contract (String client_name, boolean status){
+        this.client_name = client_name;
+        this.status = status;
+    }
 
     //List<Contract> contracts;
 }

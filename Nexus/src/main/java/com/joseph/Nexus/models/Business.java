@@ -20,7 +20,7 @@ public class Business{
     @Column(name = "business_id", nullable = false)
     private int id;
 
-    @Column(nullable = false, columnDefinition = "VARCHAR(256")
+    @Column(nullable = false, columnDefinition = "VARCHAR(256)")
     private String business_name;
 
     @Column(nullable = false, columnDefinition = "TEXT")
@@ -34,6 +34,11 @@ public class Business{
 
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean status;
+
+    public Business(String business_name, String email){
+        this.business_name = business_name;
+        this.email = email;
+    }
 
    // List<Business> businesses;
 
