@@ -21,6 +21,7 @@ The Nexus CRM v1 can provide this solution, simplying the often complex tasks of
 ## Technology
 
 Key technologies and dependencies used in this project:
+
 - Java
 - Maven
 - Spring JPA with Hibernate
