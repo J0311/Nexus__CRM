@@ -22,3 +22,4 @@ public interface ContractRepo extends JpaRepository <Contract, Integer> {
 
     @Query(value = "SELECT * FROM contract WHERE contract_id = :contractId", nativeQuery = true)
     List<Contract> findAllByContractId(@Param("contractId") int contractId);
+}
