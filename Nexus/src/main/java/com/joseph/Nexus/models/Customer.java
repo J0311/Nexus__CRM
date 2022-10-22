@@ -1,8 +1,10 @@
 package com.joseph.Nexus.models;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+
 
 @Data
 @Entity
@@ -15,10 +17,11 @@ import java.util.List;
 @EqualsAndHashCode
 
 public class Customer{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id", nullable = false)
-    private int id;
+    private int customerId;
 
     @Column(nullable = false, columnDefinition = "VARCHAR(256)")
     private String first_name;
@@ -43,7 +46,4 @@ public class Customer{
         this.last_name = last_name;
         this.email = email;
     }
-
-    //List<Customer> customers;
-
 }
