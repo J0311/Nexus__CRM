@@ -27,10 +27,10 @@ public class Contract {
     private String client_name;
 
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
-    private boolean status;
+    private boolean isPending;
 
-    public Contract (String client_name, boolean status){
+    public Contract (String client_name, boolean isPending){
         this.client_name = client_name;
-        this.status = status;
+        this.isPending = isPending;
     }
 }

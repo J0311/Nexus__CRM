@@ -39,7 +39,7 @@ public class Customer{
     private int phone_number;
 
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
-    private boolean status;
+    private boolean isPending;
 
     public Customer(String first_name, String last_name, String email){
         this.first_name = first_name;
