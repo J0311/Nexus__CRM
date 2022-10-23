@@ -40,6 +40,10 @@ public class Customer{
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")
     private boolean isPending;
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "contractId", referencedColumnName = "contract_id")
+    private Contract contract;
+
     public Customer(String first_name, String last_name, String email){
         this.first_name = first_name;
         this.last_name = last_name;
