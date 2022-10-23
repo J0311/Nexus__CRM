@@ -37,7 +37,7 @@ public class Customer{
     @Column(unique = true, nullable = false, columnDefinition = "INTEGER")
     private int phone_number;
 
-    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")
     private boolean isPending;
 
     public Customer(String first_name, String last_name, String email){

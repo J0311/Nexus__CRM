@@ -33,7 +33,7 @@ public class Business{
     @Column(unique = true, nullable = false, columnDefinition = "INTEGER")
     private int phone_number;
 
-    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")
     private boolean isPending;
 
     public Business(String business_name, String email){

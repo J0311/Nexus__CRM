@@ -26,7 +26,7 @@ public class Contract {
     @Column(nullable = false, columnDefinition = "VARCHAR(256)")
     private String client_name;
 
-    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")
     private boolean isPending;
 
     public Contract (String client_name, boolean isPending){
