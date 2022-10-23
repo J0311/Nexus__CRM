@@ -15,7 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
+
 public class Contract {
 
     @Id
