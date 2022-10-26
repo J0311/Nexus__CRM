@@ -1,4 +1,4 @@
-# Nexus CRM
+# Nexus CRM v1
 &lt;Quantum CRM of the future>
 
 | [Description](#description) | [Features](#features) | [Technology](#technology) |  
