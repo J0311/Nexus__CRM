@@ -35,6 +35,7 @@ Key technologies and dependencies used in this project:
 - Jackson Library
 - Spring Data
 - Twitter API v2
+- Docker
 - PostgreSQL
 - DBeaver
 - IntelliJ IDEA IDE
