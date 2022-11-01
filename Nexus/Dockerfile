@@ -1,7 +1,18 @@
-FROM openjdk: latest
-RUN mkdir /app
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:17-jre-alpine
 
-COPY ${JAR_FILE} app.jar
-RUN javac NexusApplication.java
+# set shell to bash
+# source: https://stackoverflow.com/a/40944512/3128926
+RUN apk update && apk add bash
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the fat jar into the container at /app
+COPY /target/Nexus.jar /app
+
+# Make port 8080 available outside this container
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+
+# Run jar file when the container launches
+CMD ["java", "-jar", "Nexus.jar"]
