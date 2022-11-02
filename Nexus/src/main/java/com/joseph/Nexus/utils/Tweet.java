@@ -29,7 +29,7 @@ public class Tweet {
         try {
             twitter4j.Twitter twitter = new TwitterFactory().getInstance();
 
-            // twitter.setOAuthConsumer(API_KEY, API_KEY_SECRET);
+             twitter.setOAuthConsumer(API_KEY, API_KEY_SECRET);
 
             AccessToken accessToken = new AccessToken(ACCESS_TOKEN, ACCESS_TOKEN_SECRET);
 
