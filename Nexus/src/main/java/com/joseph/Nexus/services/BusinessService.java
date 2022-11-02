@@ -18,6 +18,6 @@ public class BusinessService {
     }
 
     public String getBusinesses() {
-        return "Business Test";
+        return "Business Test in progress";
     }
 }

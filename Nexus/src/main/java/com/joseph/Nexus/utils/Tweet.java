@@ -11,9 +11,10 @@ import twitter4j.auth.AccessToken;
 
 public class Tweet {
 
-    public Tweet(){}
-
-    public String tw = "I stay on task with my clients from Nexus CRM. Download the app today!";
+    static final String KEY = System.getenv("API_KEY");
+    static final String KEY_SECRET = System.getenv("API_KEY_SECRET");
+    static final String TOKEN = System.getenv("TOKEN");
+    static final String TOKEN_SECRET = System.getenv("TOKEN_SECRET");
 
 
     public String shareApp(String tw){
@@ -21,17 +22,12 @@ public class Tweet {
         System.out.println();
         System.out.println("*************** TWEET in Progress *********************");
 
-        String API_KEY = "foo";
-        String API_KEY_SECRET ="foo";
-        String ACCESS_TOKEN = "foo-bar";
-        String ACCESS_TOKEN_SECRET = "foo";
-
         try {
             twitter4j.Twitter twitter = new TwitterFactory().getInstance();
 
-             twitter.setOAuthConsumer(API_KEY, API_KEY_SECRET);
+             twitter.setOAuthConsumer(KEY, KEY_SECRET);
 
-            AccessToken accessToken = new AccessToken(ACCESS_TOKEN, ACCESS_TOKEN_SECRET);
+            AccessToken accessToken = new AccessToken(TOKEN, TOKEN_SECRET);
 
             twitter.setOAuthAccessToken(accessToken);
 
