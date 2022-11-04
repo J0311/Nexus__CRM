@@ -1,6 +1,9 @@
 # Nexus CRM v1
 &lt;Quantum CRM of the future>
 
+![Nexus1](https://user-images.githubusercontent.com/96276860/199867931-bc69b95d-fe75-4789-977f-7ddf20e46591.png)
+
+
 | [Description](#description) | [Features](#features) | [Technology](#technology) |  
 
 ## Description
@@ -51,6 +54,3 @@ Key technologies and dependencies used in this project:
 - Git
 - AWS Cloud
 - Postman
-
-
-![image](https://user-images.githubusercontent.com/96276860/199867863-c44eb184-9be1-458a-be7e-63519517b678.png)
