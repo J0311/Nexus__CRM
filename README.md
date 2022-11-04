@@ -10,9 +10,16 @@
 
 Customer Relationship Manager (CRM) gives YOU, the salesperson, independent business owner, business development executive, etc. the most straightforward way to  process the management of customer relations in your business/enterprise. Not only can it foster better client relations, but is a viable software solution which adds convenience and efficiency.
 
+![NexusLogin](https://user-images.githubusercontent.com/96276860/199868038-5c53309d-d4e9-465c-bd58-b3c6f6635e01.png)
+
+![NexusRegister](https://user-images.githubusercontent.com/96276860/199868043-04a18930-6632-4a3b-94a0-8f62d52299cc.png)
+
 The Nexus CRM v1 can provide this solution, simplying the often complex tasks of managing customer details, dates, and tracking contracts so you can focus on what you do best - GENERATE REVENUE!
 
 ## Features
+
+![NexusCharts](https://user-images.githubusercontent.com/96276860/199868083-0c2c3100-c030-43d5-a9c4-9fa74aff3ec0.png)
+
 
 - User can create new customer/client along with basic fields (name, email, birthday, other pertinent information)
 - User can track contracts with customers, both pending as well as deals that have closed
@@ -22,6 +29,9 @@ The Nexus CRM v1 can provide this solution, simplying the often complex tasks of
 - Logging, Javadocs and tests.
 
 ## Technology
+
+![NexusChart2](https://user-images.githubusercontent.com/96276860/199868114-c03f226e-dadc-46bb-bc33-66d8f82de123.png)
+
 
 Key technologies and dependencies used in this project:
 
