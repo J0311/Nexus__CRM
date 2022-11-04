@@ -49,6 +49,7 @@ Key technologies and dependencies used in this project:
 - Jackson Library
 - Spring Data
 - Twitter API v2
+- Cloud Native Buildpacks (CNB)
 - Docker
 - PostgreSQL
 - DBeaver
