@@ -57,7 +57,7 @@ Key technologies and dependencies used in this project:
 - CSS 3
 - JavaScript
 - Elastic Beanstalk
-- JUnit![Uploading Nexus1.png…]()
+- JUnit
 - Mockito
 - Log4J
 - Tomcat Web Server
