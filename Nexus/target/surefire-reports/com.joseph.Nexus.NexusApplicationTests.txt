@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.joseph.Nexus.NexusApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.179 s - in com.joseph.Nexus.NexusApplicationTests
