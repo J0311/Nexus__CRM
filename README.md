@@ -64,5 +64,6 @@ Key technologies and dependencies used in this project:
 - Log4J
 - Tomcat Web Server
 - Git
-- AWS Cloud
+- AWS RDS
+- AWS Elastic Beanstalk
 - Postman
