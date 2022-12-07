@@ -24,4 +24,6 @@ public class BusinessController {
     public String getBusinesses(){
         return businessService.getBusinesses();
     }
+
+
 }
