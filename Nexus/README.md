@@ -63,6 +63,7 @@ Key technologies and dependencies used in this project:
 - Mockito
 - Log4J
 - Tomcat Web Server
+- Trello
 - Git
 - AWS RDS
 - AWS Elastic Beanstalk
