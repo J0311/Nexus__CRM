@@ -63,7 +63,8 @@ Key technologies and dependencies used in this project:
 - Mockito
 - Log4J
 - Tomcat Web Server
-- Trello (Testing Scenario Management)
+- Trello (Test Scenario Management)
+- Google Sheets (Test Case Management)
 - Git
 - AWS RDS
 - AWS Elastic Beanstalk
