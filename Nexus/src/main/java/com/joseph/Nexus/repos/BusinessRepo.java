@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface BusinessRepo extends JpaRepository<Business, Integer> {
+public interface BusinessRepo extends JpaRepository <Business, Integer> {
 
     /**
      * Returns a list of all businesses in the database that are associated
@@ -30,7 +30,7 @@ public interface BusinessRepo extends JpaRepository<Business, Integer> {
      * @param keyword - the keyword to search for
      * @return a list of all businesses whose name contains the given keyword
      */
-
-    @Query("SELECT p FROM Product p WHERE UPPER(name) LIKE CONCAT('%',UPPER(:keyword),'%')")
-    List<Business> searchByName(@Param("keyword") String keyword);
+//
+//    @Query("SELECT p FROM Product p WHERE UPPER(name) LIKE CONCAT('%',UPPER(:keyword),'%')")
+//    List<Business> searchByName(@Param("keyword") String keyword);
 }

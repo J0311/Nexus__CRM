@@ -70,8 +70,8 @@ public class BusinessService {
      * @param keyword - the keyword to search for
      * @return a list of businesses with the given keyword in the name
      */
-    public List<Business> searchByName(String keyword) {
-        return businessRepo.searchByName(keyword);
-    }
+//    public List<Business> searchByName(String keyword) {
+//        return businessRepo.searchByName(keyword);
+//    }
 
 }

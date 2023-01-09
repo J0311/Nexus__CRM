@@ -21,8 +21,8 @@ public class BusinessController {
     }
 
     @GetMapping
-    public String getBusinesses(){
-        return businessService.getBusinesses();
+    public String getTest(){
+        return businessService.test();
     }
 
 

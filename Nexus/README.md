@@ -69,3 +69,4 @@ Key technologies and dependencies used in this project:
 - AWS RDS
 - AWS Elastic Beanstalk
 - Postman
+- Screen-O-Matic
