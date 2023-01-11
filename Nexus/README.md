@@ -59,6 +59,7 @@ Key technologies and dependencies used in this project:
 - CSS 3
 - JavaScript
 - Elastic Beanstalk
+- Groovy
 - JUnit
 - Mockito
 - Log4J
