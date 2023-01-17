@@ -40,9 +40,30 @@ public class Business{
     @JoinColumn(name = "contractId", referencedColumnName = "contract_id")
     private Contract contract;
 
+    // Used for POST Request
     public Business(String business_name, String email){
         this.business_name = business_name;
         this.email = email;
     }
 
+        // Used for POST Request
+    public Business(String business_name, String description, String email, int phone_number, boolean isPending, Contract contract) {
+        this.business_name = business_name;
+        this.description = description;
+        this.email = email;
+        this.phone_number = phone_number;
+        this.isPending = isPending;
+        this.contract = contract;
+    }
+
+    // Used for PUT Request
+    public Business(int businessId, String business_name, String description, String email, int phone_number, boolean isPending, Contract contract) {
+        this.businessId = businessId;
+        this.business_name = business_name;
+        this.description = description;
+        this.email = email;
+        this.phone_number = phone_number;
+        this.isPending = isPending;
+        this.contract = contract;
+    }
 }
