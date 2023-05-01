@@ -11,26 +11,34 @@ import java.util.Optional;
 @Service
 public class ContractService {
 
-    private final ContractRepo contractRepository;
+    private final ContractRepo contractRepo;
 
     @Autowired
-    public ContractService(ContractRepo contractRepository) {
-        this.contractRepository = contractRepository;
+    public ContractService(ContractRepo contractRepo) {
+        this.contractRepo = contractRepo;
     }
 
     public List<Contract> getAllContracts() {
-        return contractRepository.findAll();
+        return contractRepo.findAll();
     }
 
     public Optional<Contract> getContractById(int id) {
-        return contractRepository.findById(id);
+        return contractRepo.findById(id);
     }
 
-    public Contract saveContract(Contract contract) {
-        return contractRepository.save(contract);
+    public Contract addContract(Contract contract) {
+        return contractRepo.save(contract);
+    }
+
+    public void updateContract(int contractId, Contract contract) {
+        Optional<Contract> existingContract = contractRepo.findById(contractId);
+        if (existingContract.isPresent()) {
+            contract.setContractId(contractId);
+            contractRepo.save(contract);
+        }
     }
 
     public void deleteContract(int id) {
-        contractRepository.deleteById(id);
+        contractRepo.deleteById(id);
     }
 }
