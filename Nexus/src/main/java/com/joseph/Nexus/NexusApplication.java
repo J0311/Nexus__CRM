@@ -12,8 +12,7 @@ public class NexusApplication {
 
 		System.out.println("Welcome To The NEXUS");
 		System.out.println();
-
-
+		
 //		String tw = "Nexus CRM is the future!";
 //		Tweet tweet = new Tweet();
 //		tweet.shareApp(tw);
