@@ -1,6 +1,5 @@
 package com.joseph.Nexus;
 
-import com.joseph.Nexus.utils.Tweet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
