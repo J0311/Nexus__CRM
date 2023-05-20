@@ -49,4 +49,8 @@ public class Customer{
         this.last_name = last_name;
         this.email = email;
     }
+
+    public Customer(int customerId, String customer_name) {
+        this.customerId = customerId;
+    }
 }
