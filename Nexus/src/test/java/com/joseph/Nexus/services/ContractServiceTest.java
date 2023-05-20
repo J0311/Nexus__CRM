@@ -67,13 +67,13 @@ class ContractServiceTest {
     @Test
     void testAddContract() {
         Contract contract = new Contract();
-        contract.setClient_name("Dr Jane Doe");
+        contract.setClient_name("Dr John Doe");
         contract.setContractId(123);
         contract.setPending(true);
         when(contractRepo.save((Contract) any())).thenReturn(contract);
 
         Contract contract1 = new Contract();
-        contract1.setClient_name("Dr Jane Doe");
+        contract1.setClient_name("Dr John Doe");
         contract1.setContractId(123);
         contract1.setPending(true);
         assertSame(contract, contractService.addContract(contract1));
