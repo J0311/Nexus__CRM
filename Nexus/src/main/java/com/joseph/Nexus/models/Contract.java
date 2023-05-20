@@ -32,4 +32,9 @@ public class Contract {
         this.client_name = client_name;
         this.isPending = isPending;
     }
+
+    public Contract(int contractId, String client_name) {
+        this.contractId = contractId;
+        this.client_name = client_name;
+    }
 }
