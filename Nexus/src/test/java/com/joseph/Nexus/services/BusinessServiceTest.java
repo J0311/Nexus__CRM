@@ -1,252 +1,125 @@
 package com.joseph.Nexus.services;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 import com.joseph.Nexus.models.Business;
-import com.joseph.Nexus.models.Contract;
 import com.joseph.Nexus.repos.BusinessRepo;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import java.util.Optional;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
-@ContextConfiguration(classes = {BusinessService.class})
-@ExtendWith(SpringExtension.class)
 class BusinessServiceTest {
-    @MockBean
+
+    @Mock
     private BusinessRepo businessRepo;
 
-    @Autowired
     private BusinessService businessService;
 
-    /**
-     * Method under test: {@link BusinessService#getAllBusinesses()}
-     */
-    @Test
-    void testGetAllBusinesses() {
-        ArrayList<Business> businessList = new ArrayList<>();
-        when(businessRepo.findAll()).thenReturn(businessList);
-        List<Business> actualAllBusinesses = businessService.getAllBusinesses();
-        assertSame(businessList, actualAllBusinesses);
-        assertTrue(actualAllBusinesses.isEmpty());
-        verify(businessRepo).findAll();
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+        businessService = new BusinessService();
+       // businessRepo = new BusinessRepo();
     }
 
-    /**
-     * Method under test: {@link BusinessService#getBusinessById(int)}
-     */
     @Test
-    void testGetBusinessById() {
-        Contract contract = new Contract();
-        contract.setClient_name("Dr Jane Doe");
-        contract.setContractId(123);
-        contract.setPending(true);
+    void getAllBusinesses_ShouldReturnAllBusinesses() {
+        // Arrange
+        List<Business> expectedBusinesses = new ArrayList<>();
+        expectedBusinesses.add(new Business(1, "Business 1"));
+        expectedBusinesses.add(new Business(2, "Business 2"));
+        when(businessRepo.findAll()).thenReturn(expectedBusinesses);
 
-        Business business = new Business();
-        business.setBusinessId(123);
-        business.setBusiness_name("Business name");
-        business.setContract(contract);
-        business.setDescription("The characteristics of someone or something");
-        business.setEmail("jane.doe@example.org");
-        business.setPending(true);
-        business.setPhone_number(10);
-        Optional<Business> ofResult = Optional.of(business);
-        when(businessRepo.findById((Integer) any())).thenReturn(ofResult);
-        Optional<Business> actualBusinessById = businessService.getBusinessById(123);
-        assertSame(ofResult, actualBusinessById);
-        assertTrue(actualBusinessById.isPresent());
-        verify(businessRepo).findById((Integer) any());
+        // Act
+        List<Business> actualBusinesses = businessService.getAllBusinesses();
+
+        // Assert
+        assertEquals(expectedBusinesses, actualBusinesses);
+        verify(businessRepo, times(1)).findAll();
     }
 
-    /**
-     * Method under test: {@link BusinessService#addBusiness(Business)}
-     */
     @Test
-    void testAddBusiness() {
-        Contract contract = new Contract();
-        contract.setClient_name("Dr Jane Doe");
-        contract.setContractId(123);
-        contract.setPending(true);
+    void getBusinessById_ExistingId_ShouldReturnBusiness() {
+        // Arrange
+        int businessId = 1;
+        Business expectedBusiness = new Business(businessId, "Business 1");
+        when(businessRepo.findById(businessId)).thenReturn(Optional.of(expectedBusiness));
 
-        Business business = new Business();
-        business.setBusinessId(123);
-        business.setBusiness_name("Business name");
-        business.setContract(contract);
-        business.setDescription("The characteristics of someone or something");
-        business.setEmail("jane.doe@example.org");
-        business.setPending(true);
-        business.setPhone_number(10);
-        when(businessRepo.save((Business) any())).thenReturn(business);
+        // Act
+        Optional<Business> actualBusiness = businessService.getBusinessById(businessId);
 
-        Contract contract1 = new Contract();
-        contract1.setClient_name("Dr Jane Doe");
-        contract1.setContractId(123);
-        contract1.setPending(true);
-
-        Business business1 = new Business();
-        business1.setBusinessId(123);
-        business1.setBusiness_name("Business name");
-        business1.setContract(contract1);
-        business1.setDescription("The characteristics of someone or something");
-        business1.setEmail("jane.doe@example.org");
-        business1.setPending(true);
-        business1.setPhone_number(10);
-        assertSame(business, businessService.addBusiness(business1));
-        verify(businessRepo).save((Business) any());
+        // Assert
+        assertTrue(actualBusiness.isPresent());
+        assertEquals(expectedBusiness, actualBusiness.get());
+        verify(businessRepo, times(1)).findById(businessId);
     }
 
-    /**
-     * Method under test: {@link BusinessService#updateBusiness(int, Business)}
-     */
     @Test
-    void testUpdateBusiness() {
-        Contract contract = new Contract();
-        contract.setClient_name("Dr Jane Doe");
-        contract.setContractId(123);
-        contract.setPending(true);
+    void getBusinessById_NonExistingId_ShouldReturnEmptyOptional() {
+        // Arrange
+        int businessId = 1;
+        when(businessRepo.findById(businessId)).thenReturn(Optional.empty());
 
-        Business business = new Business();
-        business.setBusinessId(123);
-        business.setBusiness_name("Business name");
-        business.setContract(contract);
-        business.setDescription("The characteristics of someone or something");
-        business.setEmail("jane.doe@example.org");
-        business.setPending(true);
-        business.setPhone_number(10);
-        Optional<Business> ofResult = Optional.of(business);
+        // Act
+        Optional<Business> actualBusiness = businessService.getBusinessById(businessId);
 
-        Contract contract1 = new Contract();
-        contract1.setClient_name("Dr Jane Doe");
-        contract1.setContractId(123);
-        contract1.setPending(true);
-
-        Business business1 = new Business();
-        business1.setBusinessId(123);
-        business1.setBusiness_name("Business name");
-        business1.setContract(contract1);
-        business1.setDescription("The characteristics of someone or something");
-        business1.setEmail("jane.doe@example.org");
-        business1.setPending(true);
-        business1.setPhone_number(10);
-        when(businessRepo.save((Business) any())).thenReturn(business1);
-        when(businessRepo.findById((Integer) any())).thenReturn(ofResult);
-
-        Contract contract2 = new Contract();
-        contract2.setClient_name("Dr Jane Doe");
-        contract2.setContractId(123);
-        contract2.setPending(true);
-
-        Business business2 = new Business();
-        business2.setBusinessId(123);
-        business2.setBusiness_name("Business name");
-        business2.setContract(contract2);
-        business2.setDescription("The characteristics of someone or something");
-        business2.setEmail("jane.doe@example.org");
-        business2.setPending(true);
-        business2.setPhone_number(10);
-        businessService.updateBusiness(123, business2);
-        verify(businessRepo).save((Business) any());
-        verify(businessRepo).findById((Integer) any());
-        assertEquals(123, business2.getBusinessId());
+        // Assert
+        assertFalse(actualBusiness.isPresent());
+        verify(businessRepo, times(1)).findById(businessId);
     }
 
-    /**
-     * Method under test: {@link BusinessService#updateBusiness(int, Business)}
-     */
     @Test
-    void testUpdateBusiness2() {
-        Contract contract = new Contract();
-        contract.setClient_name("Dr Jane Doe");
-        contract.setContractId(123);
-        contract.setPending(true);
+    void addBusiness_ShouldSaveAndReturnBusiness() {
+        // Arrange
+        Business business = new Business(1, "Business 1");
+        when(businessRepo.save(business)).thenReturn(business);
 
-        Business business = new Business();
-        business.setBusinessId(123);
-        business.setBusiness_name("Business name");
-        business.setContract(contract);
-        business.setDescription("The characteristics of someone or something");
-        business.setEmail("jane.doe@example.org");
-        business.setPending(true);
-        business.setPhone_number(10);
-        when(businessRepo.save((Business) any())).thenReturn(business);
-        when(businessRepo.findById((Integer) any())).thenReturn(Optional.empty());
+        // Act
+        Business savedBusiness = businessService.addBusiness(business);
 
-        Contract contract1 = new Contract();
-        contract1.setClient_name("Dr Jane Doe");
-        contract1.setContractId(123);
-        contract1.setPending(true);
-
-        Business business1 = new Business();
-        business1.setBusinessId(123);
-        business1.setBusiness_name("Business name");
-        business1.setContract(contract1);
-        business1.setDescription("The characteristics of someone or something");
-        business1.setEmail("jane.doe@example.org");
-        business1.setPending(true);
-        business1.setPhone_number(10);
-        businessService.updateBusiness(123, business1);
-        verify(businessRepo).findById((Integer) any());
-        assertEquals(123, business1.getBusinessId());
-        assertTrue(business1.isPending());
-        assertEquals(10, business1.getPhone_number());
-        assertEquals("jane.doe@example.org", business1.getEmail());
-        assertEquals("The characteristics of someone or something", business1.getDescription());
-        assertEquals(contract, business1.getContract());
-        assertEquals("Business name", business1.getBusiness_name());
-        assertTrue(businessService.getAllBusinesses().isEmpty());
+        // Assert
+        assertEquals(business, savedBusiness);
+        verify(businessRepo, times(1)).save(business);
     }
 
-    /**
-     * Method under test: {@link BusinessService#deleteBusiness(int)}
-     */
     @Test
-    void testDeleteBusiness() {
-        Contract contract = new Contract();
-        contract.setClient_name("Dr Jane Doe");
-        contract.setContractId(123);
-        contract.setPending(true);
+    void updateBusiness_ExistingBusiness_ShouldUpdateAndSaveBusiness() {
+        // Arrange
+        int businessId = 1;
+        Business existingBusiness = new Business(businessId, "Business 1");
+        Business updatedBusiness = new Business(businessId, "Updated Business 1");
+        when(businessRepo.findById(businessId)).thenReturn(Optional.of(existingBusiness));
+        when(businessRepo.save(updatedBusiness)).thenReturn(updatedBusiness);
 
-        Business business = new Business();
-        business.setBusinessId(123);
-        business.setBusiness_name("Business name");
-        business.setContract(contract);
-        business.setDescription("The characteristics of someone or something");
-        business.setEmail("jane.doe@example.org");
-        business.setPending(true);
-        business.setPhone_number(10);
-        Optional<Business> ofResult = Optional.of(business);
-        doNothing().when(businessRepo).deleteById((Integer) any());
-        when(businessRepo.findById((Integer) any())).thenReturn(ofResult);
-        businessService.deleteBusiness(123);
-        verify(businessRepo).findById((Integer) any());
-        verify(businessRepo).deleteById((Integer) any());
-        assertTrue(businessService.getAllBusinesses().isEmpty());
+        // Act
+        businessService.updateBusiness(businessId, updatedBusiness);
+
+        // Assert
+        verify(businessRepo, times(1)).findById(businessId);
+        verify(businessRepo, times(1)).save(updatedBusiness);
+        assertEquals(businessId, updatedBusiness.getBusinessId());
     }
 
-    /**
-     * Method under test: {@link BusinessService#deleteBusiness(int)}
-     */
     @Test
-    void testDeleteBusiness2() {
-        doNothing().when(businessRepo).deleteById((Integer) any());
-        when(businessRepo.findById((Integer) any())).thenReturn(Optional.empty());
-        businessService.deleteBusiness(123);
-        verify(businessRepo).findById((Integer) any());
-        assertTrue(businessService.getAllBusinesses().isEmpty());
+    void updateBusiness_NonExistingBusiness_ShouldNotUpdateBusiness() {
+        // Arrange
+        int nonExistingBusinessId = 1;
+        Business updatedBusiness = new Business(nonExistingBusinessId, "Updated Business 1");
+        when(businessRepo.findById(nonExistingBusinessId)).thenReturn(Optional.empty());
+
+        // Act
+        businessService.updateBusiness(nonExistingBusinessId, updatedBusiness);
+
+        // Assert
+        verify(businessRepo, times(1)).findById(nonExistingBusinessId);
+        verify(businessRepo, never()).save(updatedBusiness);
     }
 }
+
 

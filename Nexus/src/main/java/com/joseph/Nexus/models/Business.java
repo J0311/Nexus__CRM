@@ -65,4 +65,10 @@ public class Business{
         this.isPending = isPending;
         this.contract = contract;
     }
+
+    public Business(int businessId, String email) {
+        this.businessId = businessId;
+        this.email = email;
+
+    }
 }
