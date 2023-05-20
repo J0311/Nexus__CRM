@@ -27,7 +27,7 @@ class ContractControllerTest {
     void setUp() {
         initMocks(this);
         contractController = new ContractController();
-        
+
     }
 
     @Test
