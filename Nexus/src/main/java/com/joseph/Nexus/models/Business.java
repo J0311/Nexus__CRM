@@ -29,7 +29,7 @@ public class Business{
     @Column(unique = true, nullable = false, columnDefinition = "VARCHAR(256)")
     private String email;
 
-    @Column(unique = true, nullable = false, columnDefinition = "INTEGER")
+    @Column(unique = true, length = 10, nullable = false, columnDefinition = "INTEGER")
     private int phone_number;
 
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")

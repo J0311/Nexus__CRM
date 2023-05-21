@@ -1,6 +1,7 @@
 package com.joseph.Nexus.utils;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -44,6 +45,50 @@ class TweetTest {
         verify(twitter, times(1)).setOAuthConsumer(Tweet.KEY, Tweet.KEY_SECRET);
         verify(twitter, times(1)).setOAuthAccessToken(new AccessToken(Tweet.TOKEN, Tweet.TOKEN_SECRET));
         verify(twitter, times(1)).updateStatus(tweetMessage);
+    }
+
+    /**
+     * Method under test: {@link Tweet#shareApp(String)}
+     */
+    @Test
+    @Disabled("TODO: Complete this test")
+    void testShareApp() {
+        // TODO: Complete this test.
+        //   Reason: R013 No inputs found that don't throw a trivial exception.
+        //   Diffblue Cover tried to run the arrange/act section, but the method under
+        //   test threw
+        //   java.lang.NullPointerException: consumer key is null
+        //       at twitter4j.TwitterBaseImpl.setOAuthConsumer(TwitterBaseImpl.java:265)
+        //       at com.joseph.Nexus.utils.Tweet.shareApp(Tweet.java:28)
+        //   In order to prevent shareApp(String)
+        //   from throwing NullPointerException, add constructors or factory
+        //   methods that make it easier to construct fully initialized objects used in
+        //   shareApp(String).
+        //   See https://diff.blue/R013 to resolve this issue.
+
+        (new Tweet()).shareApp("Tw");
+    }
+
+    /**
+     * Method under test: {@link Tweet#shareApp(String)}
+     */
+    @Test
+    @Disabled("TODO: Complete this test")
+    void testShareApp2() {
+        // TODO: Complete this test.
+        //   Reason: R013 No inputs found that don't throw a trivial exception.
+        //   Diffblue Cover tried to run the arrange/act section, but the method under
+        //   test threw
+        //   java.lang.NullPointerException: consumer key is null
+        //       at twitter4j.TwitterBaseImpl.setOAuthConsumer(TwitterBaseImpl.java:265)
+        //       at com.joseph.Nexus.utils.Tweet.shareApp(Tweet.java:28)
+        //   In order to prevent shareApp(String)
+        //   from throwing NullPointerException, add constructors or factory
+        //   methods that make it easier to construct fully initialized objects used in
+        //   shareApp(String).
+        //   See https://diff.blue/R013 to resolve this issue.
+
+        (new Tweet()).shareApp("foo");
     }
 
     @Test
