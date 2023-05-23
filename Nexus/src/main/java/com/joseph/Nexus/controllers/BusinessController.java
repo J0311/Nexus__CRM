@@ -15,7 +15,7 @@ import java.util.Optional;
 public class BusinessController {
 
     @Autowired
-    private BusinessService businessService;
+    private BusinessService businessService = new BusinessService();
 
     @GetMapping("")
     public ResponseEntity<List<Business>> getAllBusinesses() {

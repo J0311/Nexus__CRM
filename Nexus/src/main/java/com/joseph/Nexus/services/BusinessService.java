@@ -10,9 +10,12 @@ import java.util.Optional;
 
 @Service
 public class BusinessService {
+    private BusinessRepo businessRepo;
 
     @Autowired
-    private BusinessRepo businessRepo;
+    public void setBusinessRepo (BusinessRepo businessRepo){
+        this.businessRepo = businessRepo;
+    }
 
     public List<Business> getAllBusinesses() {
         return businessRepo.findAll();
