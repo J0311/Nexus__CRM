@@ -13,9 +13,12 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/contracts")
 public class ContractController {
+    ContractService contractService;
 
     @Autowired
-    private ContractService contractService;
+    public void setContractService (ContractService contractService) {
+        this.contractService = contractService;
+    }
 
     @GetMapping("")
     public ResponseEntity<List<Contract>> getAllContracts() {
