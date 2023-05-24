@@ -13,9 +13,12 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/businesses")
 public class BusinessController {
+    BusinessService businessService;
 
     @Autowired
-    private BusinessService businessService = new BusinessService();
+    public void setBusinessService (BusinessService businessService){
+        this.businessService = businessService;
+    }
 
     @GetMapping("")
     public ResponseEntity<List<Business>> getAllBusinesses() {
