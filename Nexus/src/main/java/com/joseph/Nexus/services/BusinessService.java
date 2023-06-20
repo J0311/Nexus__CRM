@@ -21,7 +21,7 @@ public class BusinessService {
         return businessRepo.findAll();
     }
 
-    // Return an Optional 
+    // Return an Optional
     public Optional<Business> getBusinessById(int businessId) {
         return businessRepo.findById(businessId);
     }
