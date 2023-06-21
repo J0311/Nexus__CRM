@@ -1,6 +1,7 @@
 package com.joseph.Nexus.services;
 
 import com.joseph.Nexus.models.Customer;
+import com.joseph.Nexus.repos.BusinessRepo;
 import com.joseph.Nexus.repos.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,7 @@ public class CustomerService {
 
 
     @Autowired
-    public void setCustomerRepo (CustomerRepo CustomerRepo) {
+    public CustomerService(CustomerRepo customerRepo) {
         this.customerRepo = customerRepo;
     }
 

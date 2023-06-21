@@ -25,7 +25,6 @@ class BusinessServiceTest {
     void setUp() {
         MockitoAnnotations.openMocks(this);
         businessService = new BusinessService(businessRepo);
-
     }
 
     @Test
