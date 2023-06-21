@@ -24,8 +24,8 @@ class BusinessServiceTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        businessService = new BusinessService();
-       // businessRepo = new BusinessRepo();
+        businessService = new BusinessService(businessRepo);
+
     }
 
     @Test
