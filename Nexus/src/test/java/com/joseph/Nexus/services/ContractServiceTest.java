@@ -96,7 +96,7 @@ class ContractServiceTest {
         when(contractRepo.findById(existingContractId)).thenReturn(Optional.of(existingContract));
         when(contractRepo.save(updatedContract)).thenReturn(updatedContract);
 
-        // Act 
+        // Act
         contractService.updateContract(existingContractId, updatedContract);
 
         // Assert
