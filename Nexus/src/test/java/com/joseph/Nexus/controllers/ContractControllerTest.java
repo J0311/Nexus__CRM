@@ -26,7 +26,7 @@ class ContractControllerTest {
     @BeforeEach
     void setUp() {
         initMocks(this);
-        contractController = new ContractController();
+        contractController = new ContractController(contractService);
 
     }
 

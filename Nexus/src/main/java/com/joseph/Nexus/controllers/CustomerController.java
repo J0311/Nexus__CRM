@@ -13,10 +13,11 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/customers")
 public class CustomerController {
-    CustomerService customerService;
+
+    private final CustomerService customerService;
 
     @Autowired
-    public void setCustomerService (CustomerService customerService){
+    public CustomerController (CustomerService customerService){
         this.customerService = customerService;
     }
 

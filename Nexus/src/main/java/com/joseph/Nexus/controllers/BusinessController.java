@@ -13,44 +13,42 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/businesses")
 public class BusinessController {
-    BusinessService businessService;
+
+    private final BusinessService businessService;
 
     @Autowired
-    public void setBusinessService (BusinessService businessService){
+    public BusinessController(BusinessService businessService) {
         this.businessService = businessService;
     }
 
     @GetMapping("")
     public ResponseEntity<List<Business>> getAllBusinesses() {
         List<Business> businesses = businessService.getAllBusinesses();
-        return new ResponseEntity<>(businesses, HttpStatus.OK);
+        return ResponseEntity.ok(businesses);
     }
 
     @GetMapping("/{businessId}")
     public ResponseEntity<Business> getBusinessById(@PathVariable int businessId) {
         Optional<Business> business = businessService.getBusinessById(businessId);
-        if (business.isPresent()) {
-            return new ResponseEntity<>(business.get(), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return business.map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping("")
     public ResponseEntity<Business> addBusiness(@RequestBody Business business) {
         Business newBusiness = businessService.addBusiness(business);
-        return new ResponseEntity<>(newBusiness, HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newBusiness);
     }
 
     @PutMapping("/{businessId}")
     public ResponseEntity<Void> updateBusiness(@PathVariable int businessId, @RequestBody Business business) {
         businessService.updateBusiness(businessId, business);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{businessId}")
     public ResponseEntity<Void> deleteBusiness(@PathVariable int businessId) {
         businessService.deleteBusiness(businessId);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return ResponseEntity.noContent().build();
     }
 }

@@ -1,6 +1,7 @@
 package com.joseph.Nexus.controllers;
 
 import com.joseph.Nexus.models.Contract;
+import com.joseph.Nexus.services.BusinessService;
 import com.joseph.Nexus.services.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,10 +14,11 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/contracts")
 public class ContractController {
-    ContractService contractService;
+
+    private final ContractService contractService;
 
     @Autowired
-    public void setContractService (ContractService contractService) {
+    public ContractController(ContractService contractService) {
         this.contractService = contractService;
     }
 

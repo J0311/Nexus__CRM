@@ -26,7 +26,7 @@ class CustomerControllerTest {
     @BeforeEach
     void setUp() {
         initMocks(this);
-        customerController = new CustomerController();
+        customerController = new CustomerController(customerService);
     }
 
     @Test
