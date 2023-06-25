@@ -48,8 +48,8 @@ class CustomerControllerTest {
     @Test
     void getCustomerById_ExistingCustomerId_ReturnsCustomer() {
         // Arrange
-        int customerId = 1;
-        Customer expectedCustomer = new Customer(1, "Customer 1");
+        int customerId = 2;
+        Customer expectedCustomer = new Customer(2, "Customer 2");
         when(customerService.getCustomerById(customerId)).thenReturn(Optional.of(expectedCustomer));
 
         // Act
