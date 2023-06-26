@@ -33,7 +33,7 @@ public class Tweet {
 
             twitter.updateStatus(tw);
             System.out.println();
-            System.out.println("Successfully updated the status in Twitter.");
+            System.out.println("Successfully updated status in Twitter.");
         } catch (TwitterException te) {
             te.printStackTrace();
         }
