@@ -10,7 +10,6 @@ public class NexusApplication {
 		SpringApplication.run(NexusApplication.class, args);
 
 		System.out.println("Welcome To The NEXUS");
-		System.out.println();
 		
 //		String tw = "Nexus CRM is the future!";
 //		Tweet tweet = new Tweet();
